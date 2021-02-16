@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     # path to the folder with the YAML manifests
-    path: . 
+    path: manifests 
     repoURL: https://github.com/kgamanji/kube-edge-argocd-demo 
     targetRevision: HEAD
   # Sync policy
