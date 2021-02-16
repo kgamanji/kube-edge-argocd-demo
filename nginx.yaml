@@ -28,3 +28,4 @@ spec:
         name: nginx-alpine
         ports:
         - containerPort: 80
+          hostPort: 80
