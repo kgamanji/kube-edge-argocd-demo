@@ -1,9 +1,10 @@
 sudo apt-get update
 sudo apt-get install     apt-transport-https     ca-certificates     curl     gnupg-agent     software-properties-common
 sudo apt-key fingerprint 0EBFCD88
-sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-b_release -cs) \
-le"
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io
 
@@ -16,12 +17,13 @@ tar -xvzf kubeedge-v1.5.0-linux-amd64.tar.gz
 
 mv kubeedge-v1.5.0-linux-amd64/cloud/cloudcore/cloudcore /usr/local/bin/cloudcore
 mv keadm-v1.5.0-linux-amd64/keadm/keadm /usr/local/bin/keadm
+cp kubeedge-v1.5.0-linux-amd64/edge/edgecore /usr/local/bin/edgecore       
 
 apt-get update
 apt install mosquitto
 cp kubeedge-v1.5.0-linux-amd64/edge/edgecore /etc/kubeedge/edgecore
 
-keadm join --cloudcore-ipport=172.31.40.95:10000 --edgenode-name=edge-demo-1 --token=
+keadm join --cloudcore-ipport={{IP}}:10000 --edgenode-name=edge-demo-1 --token=
 
 
 
@@ -29,4 +31,6 @@ keadm join --cloudcore-ipport=172.31.40.95:10000 --edgenode-name=edge-demo-1 --t
 CLOUD
 
 curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v1.19.2+k3s1 sh -
-keadm init --advertise-address=172.31.40.95 --kube-config=/etc/rancher/k3s/k3s.yaml 
+keadm init --advertise-address={{IP}} --kube-config=/etc/rancher/k3s/k3s.yaml 
+
+keadm gettoken --kube-config=/etc/rancher/k3s/k3s.yaml 
