@@ -27,4 +27,4 @@ spec:
         imagePullPolicy: IfNotPresent
         name: nginx-alpine
         ports:
-        - containerPort: 8080
+        - containerPort: 80
