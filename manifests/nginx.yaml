@@ -3,14 +3,12 @@ kind: Deployment
 metadata:
   labels:
     app: nginx
-    tag: alpine
-  name: nginx-alpine
+  name: edge-nginx
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: nginx
-      tag: alpine
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -20,9 +18,8 @@ spec:
     metadata:
       labels:
         app: nginx
-        tag: alpine
     spec:
       containers:
       - image: nginx:alpine
         imagePullPolicy: IfNotPresent
-        name: nginx-alpine
+        name: edge-nginx

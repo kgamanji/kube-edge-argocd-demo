@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-alpine
+  name: edge-nginx
   namespace: argocd
 spec:
   destination:
@@ -14,4 +14,5 @@ spec:
     repoURL: https://github.com/kgamanji/kube-edge-argocd-demo 
     targetRevision: HEAD
   # Sync policy
-  syncPolicy: {}
+  syncPolicy:
+    automated: {}
