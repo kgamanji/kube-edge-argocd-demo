@@ -20,6 +20,6 @@ spec:
         app: nginx
     spec:
       containers:
-      - image:  nginxplus/nginxplus:1.10.15 #nginx:alpine
+      - image:  nginxdemos/hello #nginx:alpine
         imagePullPolicy: IfNotPresent
         name: edge-nginx
