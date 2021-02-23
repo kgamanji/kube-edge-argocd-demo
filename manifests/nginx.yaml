@@ -20,6 +20,6 @@ spec:
         app: nginx
     spec:
       containers:
-      - image: nginx:alpine
+      - image: pixelpotato/techtrends #nginx:alpine
         imagePullPolicy: IfNotPresent
         name: edge-nginx
