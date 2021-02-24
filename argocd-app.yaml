@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: edge-nginx
+  name: nginx-edge
   namespace: argocd
 spec:
   destination:
@@ -10,8 +10,8 @@ spec:
   project: default
   source:
     # path to the folder with the YAML manifests
-    path: manifests 
-    repoURL: https://github.com/kgamanji/kube-edge-argocd-demo 
+    path: manifests
+    repoURL: https://github.com/kgamanji/kube-edge-argocd-demo
     targetRevision: HEAD
   # Sync policy
   syncPolicy:

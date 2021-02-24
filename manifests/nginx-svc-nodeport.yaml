@@ -7,11 +7,11 @@ metadata:
   name: edge-nginx-nodeport
 spec:
   ports:
-  - port: 8111
+  - port: 80
     protocol: TCP
     targetPort: 80
     nodePort: 30012
   selector:
     app: nginx
   sessionAffinity: None
-  type: NodePort 
+  type: NodePort
