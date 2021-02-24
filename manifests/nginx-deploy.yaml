@@ -20,6 +20,6 @@ spec:
         app: nginx
     spec:
       containers:
-      - image:  nginx:1.19.7
+      - image:  nginx:alpine #1.19.7
         imagePullPolicy: IfNotPresent
         name: edge-nginx
